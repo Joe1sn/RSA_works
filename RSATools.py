@@ -152,7 +152,6 @@ class RSA(object):
 			return b'ssh-rsa ' + binascii.b2a_base64(keystring)[:-1]
 
 		if format == "PEM":
-			print(format)
 			oid = "1.2.840.113549.1.1.1"
 			binary_key = DerSequence([0,n,e,d,p,q,d % (p-1),d % (q-1),Integer(q).inverse(p)]).encode()
 
@@ -181,19 +180,14 @@ class RSA(object):
 		u = inverse(p,q)
 
 		print("[*]p--done")
-		# print("p = "+str(p))
 
 		print("[*]q--done")
-		# print("q = "+str(q))
-
 
 		n = p*q
 		print("[*]n---done")
-		# print("n = "+str(n))
 
 		phi = (p-1)*(q-1)
 		print("[*]phi--done")
-		# print("phi = "+str(phi))
 
 		e=65537
 		print("[*]e--done")
@@ -206,8 +200,6 @@ class RSA(object):
 			ed+=1
 
 		print("[*]d--done")
-		# print("d = "+str(d))
-
 
 		with open(filename,"wb") as file:
 			a = RSA.export_key(e,d,p,q,n,"PEM")
