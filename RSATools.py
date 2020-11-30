@@ -165,13 +165,14 @@ class RSA(object):
 		print("[*]Start")
 		p = 0
 		q = 0
-		# while len(str(p)) != 309  or len(str(q)) != 309 or len(str(p*q)) != 617:
-		# 	p = RSA.PrimerGen(1024)
-		# 	q = RSA.PrimerGen(1024)
-		# 	while q==p:
-		# 		q = RSA.PrimerGen(1024)
-		p = RSA.PrimerGen(1024)
-		q = RSA.PrimerGen(1024)
+		while len(str(p)) != 309  or len(str(q)) != 309 or len(str(p*q)) != 617:
+			p = RSA.PrimerGen(1024)
+			q = RSA.PrimerGen(1024)
+			while q==p:
+				q = RSA.PrimerGen(1024)
+		
+		# p = RSA.PrimerGen(1024)
+		# q = RSA.PrimerGen(1024)
 		while q==p:
 			q = RSA.PrimerGen(1024)
 
@@ -180,9 +181,7 @@ class RSA(object):
 		u = inverse(p,q)
 
 		print("[*]p--done")
-
 		print("[*]q--done")
-
 		n = p*q
 		print("[*]n---done")
 
@@ -222,5 +221,3 @@ class RSA(object):
 			print("false",cipher,m)
 
 		return e,d
-
-
