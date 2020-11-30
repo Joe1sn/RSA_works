@@ -209,19 +209,17 @@ class RSA(object):
 		# print("d = "+str(d))
 
 
-		with open(filename_pub,"wb") as file:
+		with open(filename,"wb") as file:
 			a = RSA.export_key(e,d,p,q,n,"PEM")
 			file.write(a)
-			print(a)
-		print("[*]Pub Key file is writing in ",filename_pub)
+		print("[*]Private Key file is writing in ",filename)
 
-		# a = RSA.export_key(e,d,p,q,n,"OpenSSH")
-		with open(filename,"wb") as file:
+		a=0
+		with open(filename_pub,"wb") as file:
 			a = RSA.export_key(e,d,p,q,n,"OpenSSH")
 			file.write(a)
-			print(a)
-
-		print("\042[5;31;40mPub Key file is writing in\042[0m",filename)
+		a=0
+		print("[*]Public Key file is writing in",filename_pub)
 
 		# 检测部分
 		cipher = RSA.ReModule(13,e,n)
