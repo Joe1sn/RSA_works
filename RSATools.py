@@ -68,7 +68,7 @@ class RSA(object):
 			if n % 2 != 0:
 				found = True
 				# 随机性测试
-				for i in range(0, 4):   #5的时候错误率已经小于千分之一
+				for i in range(0, 2):   #5的时候错误率已经小于千分之一
 					if RSA.PrimerCheck(n) == False:
 						found = False
 						break
@@ -77,7 +77,7 @@ class RSA(object):
 
 #Miller Rabin素性检测
 #费马小定理+二次探测
-	def PrimerCheck(num,times=5): #对num检测times次
+	def PrimerCheck(num,times=1): #对num检测times次
 		if num < 3:
 			return num==2
 		u = num-1
@@ -170,9 +170,7 @@ class RSA(object):
 			q = RSA.PrimerGen(1024)
 			while q==p:
 				q = RSA.PrimerGen(1024)
-		
-		# p = RSA.PrimerGen(1024)
-		# q = RSA.PrimerGen(1024)
+
 		while q==p:
 			q = RSA.PrimerGen(1024)
 
@@ -202,7 +200,16 @@ class RSA(object):
 
 		with open(filename,"wb") as file:
 			a = RSA.export_key(e,d,p,q,n,"PEM")
-			file.write(a)
+			start = a[0:10]
+			mid = a[11:-17]
+			last = a[-16:-1]
+			string = start+b" RSA "+mid+b" RSA "+last+b"-"
+			file.write(string)
+			a = 0
+			start = 0
+			mid = 0
+			last = 0
+			string = 0
 		print("[*]Private Key file is writing in ",filename)
 
 		a=0
