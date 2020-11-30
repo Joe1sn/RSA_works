@@ -20,10 +20,10 @@ RSA 小组（个人）作业
 ```
 
 ## RSAtools.py
-
 - 实现rsa得主要算法文件
-- 调用pycryptodemo库实现ssh的证书生成
+- 调用pycryptodome库实现ssh的证书生成
 
 ## test.py
+使用前请安装pycryptodome库
 
 测试文件
