@@ -5,4 +5,4 @@ import Crypto.PublicKey.RSA
 start = time.clock()
 RSA.KeyGen()
 elapsed = (time.clock() - start)
-print("Time used:%d secs",elapsed)
+print("Time used: ",elapsed," secs")
