@@ -1,3 +1,4 @@
+#coding:utf-8
 import binascii
 import struct
 import Crypto.PublicKey.RSA
