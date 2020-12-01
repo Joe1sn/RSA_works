@@ -65,7 +65,7 @@ class RSA(object):
 #大素数生成
 	def PrimerGen(size): #生成size位的素数,rsa2048中size=2048
 		while True:
-			n = randint(1 << (size), 1 << (size))#求2^size之间的大数
+			n = randint(pow(10,308), 1 << (size+1))#求2^size之间的大数
 			if n % 2 != 0:
 				found = True
 				# 随机性测试
