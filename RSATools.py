@@ -77,7 +77,7 @@ class RSA(object):
 
 #Miller Rabin素性检测
 #费马小定理+二次探测
-	def PrimerCheck(num,times=1): #对num检测times次
+	def PrimerCheck(num,times=3): #对num检测times次
 		if num < 3:
 			return num==2
 		u = num-1
